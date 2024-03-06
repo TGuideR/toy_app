@@ -1,5 +1,5 @@
 require "application_system_test_case"
-
+#Test users model
 class UsersTest < ApplicationSystemTestCase
   setup do
     @user = users(:one)

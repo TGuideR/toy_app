@@ -1,3 +1,4 @@
+#Handle user comments
 class MicropostsController < ApplicationController
   before_action :set_micropost, only: %i[ show edit update destroy ]
 
@@ -37,12 +38,14 @@ class MicropostsController < ApplicationController
   # PATCH/PUT /microposts/1 or /microposts/1.json
   def update
     respond_to do |format|
+      html = format.html
+      json = format.json
       if @micropost.update(micropost_params)
-        format.html { redirect_to micropost_url(@micropost), notice: "Micropost was successfully updated." }
-        format.json { render :show, status: :ok, location: @micropost }
+        html { redirect_to micropost_url(@micropost), notice: "Micropost was successfully updated." }
+        json { render :show, status: :ok, location: @micropost }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @micropost.errors, status: :unprocessable_entity }
+        html { render :edit, status: :unprocessable_entity }
+        json { render json: @micropost.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -1,5 +1,5 @@
 require "test_helper"
-
+#Test Micropost Controller
 class MicropostsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @micropost = microposts(:one)
